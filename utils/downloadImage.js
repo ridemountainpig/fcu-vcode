@@ -1,14 +1,14 @@
-import axios from 'axios';
-import fs from 'fs';
-import path from 'path';
+import axios from "axios";
+import fs from "fs";
+import path from "path";
 
 async function downloadImageFromURL(url, destination) {
     try {
-        const directoryPath = './public/vcodeImage'; // Change this to the path of your image directory
+        const directoryPath = "./public/vcodeImage"; // Change this to the path of your image directory
 
         fs.readdir(directoryPath, (err, files) => {
             if (err) {
-                console.error('Error reading directory:', err);
+                console.error("Error reading directory:", err);
                 return;
             }
 
@@ -17,7 +17,7 @@ async function downloadImageFromURL(url, destination) {
 
                 fs.unlink(filePath, (err) => {
                     if (err) {
-                        console.error('Error deleting file:', err);
+                        console.error("Error deleting file:", err);
                         return;
                     }
 
@@ -26,11 +26,11 @@ async function downloadImageFromURL(url, destination) {
             });
         });
 
-        const response = await axios.get(url, { responseType: 'arraybuffer' });
+        const response = await axios.get(url, { responseType: "arraybuffer" });
         fs.writeFileSync(destination, response.data);
-        console.log('Image saved successfully.');
+        console.log("Image saved successfully.");
     } catch (error) {
-        console.error('Error saving image:', error);
+        console.error("Error saving image:", error);
     }
 }
 

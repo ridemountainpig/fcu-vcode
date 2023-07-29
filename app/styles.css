@@ -3,13 +3,14 @@
 .title-text-shadow {
     display: inline-block;
     color: white;
-    font-family: 'Righteous', serif;
-    text-shadow: .05em .05em 0 #64748b;
+    font-family: "Righteous", serif;
+    text-shadow: 0.05em 0.05em 0 #64748b;
 }
 
 .title-span-text-shadow {
     color: white;
-    text-shadow: 1px 1px 1px #94a3b8,
+    text-shadow:
+        1px 1px 1px #94a3b8,
         1px 2px 2px #e2e8f0,
         1px 3px 3px #e2e8f0,
         /* 1px 4px 4px #e2e8f0,
@@ -19,6 +20,6 @@
         1px 8px 1px #e2e8f0,
         1px 9px 1px #e2e8f0,
         1px 10px 1px #e2e8f0, */
-        1px 10px 6px #94a3b8,
+            1px 10px 6px #94a3b8,
         1px 20px 60px #94a3b8;
 }
