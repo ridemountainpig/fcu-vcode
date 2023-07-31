@@ -1,20 +1,16 @@
 import React from "react";
 import Image from "next/image";
 import { ArrowBigDown } from "lucide-react";
+import axios from "axios";
 
 import "./styles.css";
-import downloadImageFromURL from "../utils/downloadImage";
-import send_image_to_url from "../utils/vcode";
 import CountUp from "../components/CountUp";
 
 export default async function page() {
-    const validateImageURL =
-        "https://course.fcu.edu.tw/validateCode.aspx" + "?key=" + Date.now();
-    const randomNum = Math.floor(Math.random() * 1000000);
-    const destinationPath =
-        "./public/vcodeImage/validatedImage" + randomNum + ".jpg";
-    await downloadImageFromURL(validateImageURL, destinationPath);
-    const vcodeNum = await send_image_to_url(destinationPath);
+    const vcodeUrl = "https://fcu-vcode-api.ridemountainpig.repl.co/validateImg";
+    const vcodeImgResponse = await axios.get(vcodeUrl);
+    const vcodeImg = "https://fcu-vcode-api.ridemountainpig.repl.co/images/" + vcodeImgResponse.data.fileName;
+    const vcodeNum = vcodeImgResponse.data.vcode;
 
     return (
         <div className="overflow-hidden">
@@ -33,7 +29,7 @@ export default async function page() {
                             </div>
                         </div>
                         <Image
-                            src={`/vcodeImage/validatedImage${randomNum}.jpg`}
+                            src={vcodeImg}
                             alt="fcu validate code image"
                             height="80"
                             width="160"

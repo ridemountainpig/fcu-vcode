@@ -7,6 +7,12 @@ const nextConfig = {
                 hostname: "course.fcu.edu.tw",
             },
         ],
+        remotePatterns: [
+            {
+                protocol: "https",
+                hostname: "fcu-vcode-api.ridemountainpig.repl.co",
+            },
+        ],
     },
 };
 
