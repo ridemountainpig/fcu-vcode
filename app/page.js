@@ -1,16 +1,24 @@
 import React from "react";
 import Image from "next/image";
 import { ArrowBigDown } from "lucide-react";
-import axios from "axios";
 
 import "./styles.css";
 import CountUp from "../components/CountUp";
 
+const getVcodeImg = async () => {
+    const vcodeUrl =
+        "https://fcu-vcode-api.ridemountainpig.repl.co/validateImg";
+    const vcodeImgResponse = await fetch(vcodeUrl, { cache: "no-store" });
+    const vcodeResult = await vcodeImgResponse.json();
+    return vcodeResult;
+};
+
 export default async function page() {
-    const vcodeUrl = "https://fcu-vcode-api.ridemountainpig.repl.co/validateImg";
-    const vcodeImgResponse = await axios.get(vcodeUrl);
-    const vcodeImg = "https://fcu-vcode-api.ridemountainpig.repl.co/images/" + vcodeImgResponse.data.fileName;
-    const vcodeNum = vcodeImgResponse.data.vcode;
+    const vcodeImgResponse = await getVcodeImg();
+    const vcodeImgUrl =
+        "https://fcu-vcode-api.ridemountainpig.repl.co/images/" +
+        vcodeImgResponse.fileName;
+    const vcodeNum = vcodeImgResponse.vcode;
 
     return (
         <div className="overflow-hidden">
@@ -29,12 +37,12 @@ export default async function page() {
                             </div>
                         </div>
                         <Image
-                            src={vcodeImg}
+                            src={vcodeImgUrl}
                             alt="fcu validate code image"
                             height="80"
                             width="160"
                             style={{ opacity: "0.9" }}
-                            className="mx-auto border-white border-8 rounded-xl mt-[10%]"
+                            className="mx-auto border-white border-8 rounded-xl mt-[10%] bg-white bg-opacity-60 h-20"
                         />
                     </div>
                 </div>
