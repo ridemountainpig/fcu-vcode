@@ -1,12 +1,12 @@
 "use client";
 
-import React, { Component } from "react";
+import React from "react";
 import CountUpComponent from "react-countup";
 
-export default class CountUp extends Component {
-    render() {
-        const { endNum } = this.props;
+function CountUp(props) {
+    const { endNum } = props;
 
-        return <CountUpComponent end={endNum} separator="" enableScrollSpy />;
-    }
+    return <CountUpComponent end={endNum} separator="" enableScrollSpy />;
 }
+
+export default CountUp;

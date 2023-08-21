@@ -1,9 +1,10 @@
 import React from "react";
 import Image from "next/image";
-import { ArrowBigDown } from "lucide-react";
+import { ArrowBigDown, SquareCode, Bird } from "lucide-react";
 
 import "./styles.css";
 import CountUp from "../components/CountUp";
+import SyntaxHighlighter from "@/components/SyntaxHighlighter";
 
 const getVcodeImg = async () => {
     const vcodeUrl =
@@ -19,6 +20,57 @@ export default async function page() {
         "https://fcu-vcode-api.ridemountainpig.repl.co/images/" +
         vcodeImgResponse.fileName;
     const vcodeNum = vcodeImgResponse.vcode;
+
+    const pyCode = `
+    import requests
+    
+    def vcode(file_path):
+        fcu_vcode_url = 'https://fcu-vcode-api.ridemountainpig.repl.co/validate'
+        with open(file_path, 'rb') as file:
+            image_data = file.read()
+    
+        files = {'file': ('image.png', image_data, 'image/png')}
+    
+        response = requests.post(fcu_vcode_url, files=files)
+    
+        if response.status_code == 200:
+            print("Request was successful!")
+            print("Response:", response.text)
+        else:
+            print(f"Request failed with status code: {response.status_code}")
+            print("Response:", response.text)
+    
+    if __name__ == "__main__":
+        vcode(IMAGE_PATH)
+    `;
+
+    const jsCode = `
+    import axios from 'axios';
+    import { promises as fs } from 'fs';
+    import FormData from 'form-data';
+
+    async function vcode(file_path) {
+        const fcuVcodeUrl = 'https://fcu-vcode-api.ridemountainpig.repl.co/validate';
+        try {
+            const image_data = await fs.readFile(file_path);
+
+            const formData = new FormData();
+            formData.append('file', image_data, 'image.png');
+
+            const response = await axios.post(fcuVcodeUrl, formData, {
+                headers: formData.getHeaders(),
+            });
+
+            console.log(response.data);
+        } catch (error) {
+            console.error('Error:', error.message);
+        }
+    }
+
+    (async () => {
+        await vcode(IMAGE_PATH);
+    })();
+    `;
 
     return (
         <div className="overflow-hidden">
@@ -79,6 +131,80 @@ export default async function page() {
                             {vcodeNum < 100 ? <CountUp endNum={"0"} /> : ""}
                             {vcodeNum < 10 ? <CountUp endNum={"0"} /> : ""}
                             <CountUp endNum={vcodeNum} />
+                        </div>
+                    </div>
+                </div>
+                <div className="mx-40">
+                    <div className="mb-2">
+                        <span className="font-bold text-3xl p-5 text-slate-400 bg-white font-sans rounded-lg">
+                            How To Use
+                        </span>
+                        <div className="title-span-text-shadow text-2xl tracking-wider font-bold mt-8">
+                            Send your validate code image to vcode api, it will
+                            return the validate code number, and you can use it
+                            anywhere you want.
+                        </div>
+                    </div>
+                    <div className="py-5">
+                        <div className="bg-white text-slate-400 rounded-lg font-sans tracking-wider">
+                            <div className="flex text-xl p-5 h-full items-center font-semibold">
+                                <SquareCode className="mx-3" />
+                                <span>Python Code</span>
+                            </div>
+                            <div className="text-lg pl-8 pb-5 font-medium">
+                                <div className="py-1 flex h-full items-center">
+                                    <Bird className="mr-3" />
+                                    run{" "}
+                                    <span className="mx-1 rounded-md border border-slate-200 bg-slate-100 px-1.5 py-0.5 text-slate-400">
+                                        pip install requests
+                                    </span>
+                                </div>
+                                <div className="py-1 flex h-full items-center">
+                                    <Bird className="mr-3" />
+                                    change{" "}
+                                    <span className="mx-1 rounded-md border border-slate-200 bg-slate-100 px-1.5 py-0.5 text-slate-400">
+                                        IMAGE_PATH
+                                    </span>{" "}
+                                    in code to your validate code image path.
+                                </div>
+                            </div>
+                        </div>
+                        <div className="-mt-2">
+                            <SyntaxHighlighter
+                                language="python"
+                                code={pyCode}
+                            ></SyntaxHighlighter>
+                        </div>
+                    </div>
+                    <div className="py-5">
+                        <div className="bg-white text-slate-400 rounded-lg font-sans tracking-wider">
+                            <div className="flex text-xl p-5 h-full items-center font-semibold">
+                                <SquareCode className="mx-3" />
+                                <span>JavaScript Code</span>
+                            </div>
+                            <div className="text-lg pl-8 pb-5 font-medium">
+                                <div className="py-1 flex h-full items-center">
+                                    <Bird className="mr-3" />
+                                    run{" "}
+                                    <span className="mx-1 rounded-md border border-slate-200 bg-slate-100 px-1.5 py-0.5 text-slate-400">
+                                        npm install axios fs form-data
+                                    </span>
+                                </div>
+                                <div className="py-1 flex h-full items-center">
+                                    <Bird className="mr-3" />
+                                    change{" "}
+                                    <span className="mx-1 rounded-md border border-slate-200 bg-slate-100 px-1.5 py-0.5 text-slate-400">
+                                        IMAGE_PATH
+                                    </span>{" "}
+                                    in code to your validate code image path.
+                                </div>
+                            </div>
+                        </div>
+                        <div className="-mt-2">
+                            <SyntaxHighlighter
+                                language="javascript"
+                                code={jsCode}
+                            ></SyntaxHighlighter>
                         </div>
                     </div>
                 </div>
