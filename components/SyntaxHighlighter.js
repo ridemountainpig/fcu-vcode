@@ -40,7 +40,7 @@ function SyntaxHighlighter(props) {
                     wrapLines={true}
                     showLineNumbers={true}
                     lineNumberStyle={{ color: "rgb(148, 163, 184)" }}
-                    className="rounded-br-md rounded-bl-md border-x border-b border-slate-200 font-mono text-sm leading-5 tracking-wider"
+                    className="rounded-br-xl rounded-bl-xl border-x border-b border-slate-200 font-mono text-sm leading-5 tracking-wider"
                     customStyle={{
                         padding: "1rem 2rem 1rem 2rem",
                         backgroundColor: "#F6F6F6",

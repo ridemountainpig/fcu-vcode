@@ -1,10 +1,11 @@
 import React from "react";
 import Image from "next/image";
-import { ArrowBigDown, SquareCode, Bird } from "lucide-react";
+import { ArrowBigDown, Sailboat, Bird } from "lucide-react";
 
 import "./styles.css";
 import CountUp from "../components/CountUp";
 import SyntaxHighlighter from "@/components/SyntaxHighlighter";
+import Footer from "@/components/Footer";
 
 const getVcodeImg = async () => {
     const vcodeUrl =
@@ -136,7 +137,7 @@ export default async function page() {
                 </div>
                 <div className="mx-40">
                     <div className="mb-2">
-                        <span className="font-bold text-3xl p-5 text-slate-400 bg-white font-sans rounded-lg">
+                        <span className="font-bold text-3xl p-5 text-slate-400 bg-white font-sans rounded-xl border-solid border-b-5 border-r-5">
                             How To Use
                         </span>
                         <div className="title-span-text-shadow text-2xl tracking-wider font-bold mt-8">
@@ -146,12 +147,12 @@ export default async function page() {
                         </div>
                     </div>
                     <div className="py-5">
-                        <div className="bg-white text-slate-400 rounded-lg font-sans tracking-wider">
+                        <div className="bg-white text-slate-400 rounded-xl font-sans tracking-wider">
                             <div className="flex text-xl p-5 h-full items-center font-semibold">
-                                <SquareCode className="mx-3" />
+                                <Sailboat className="mx-3" />
                                 <span>Python Code</span>
                             </div>
-                            <div className="text-lg pl-8 pb-5 font-medium">
+                            <div className="text-base pl-8 pb-5 font-medium">
                                 <div className="py-1 flex h-full items-center">
                                     <Bird className="mr-3" />
                                     run{" "}
@@ -177,12 +178,12 @@ export default async function page() {
                         </div>
                     </div>
                     <div className="py-5">
-                        <div className="bg-white text-slate-400 rounded-lg font-sans tracking-wider">
+                        <div className="bg-white text-slate-400 rounded-xl font-sans tracking-wider">
                             <div className="flex text-xl p-5 h-full items-center font-semibold">
-                                <SquareCode className="mx-3" />
+                                <Sailboat className="mx-3" />
                                 <span>JavaScript Code</span>
                             </div>
-                            <div className="text-lg pl-8 pb-5 font-medium">
+                            <div className="text-base pl-8 pb-5 font-medium">
                                 <div className="py-1 flex h-full items-center">
                                     <Bird className="mr-3" />
                                     run{" "}
@@ -209,6 +210,7 @@ export default async function page() {
                     </div>
                 </div>
             </div>
+            <Footer></Footer>
         </div>
     );
 }
