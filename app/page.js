@@ -6,6 +6,7 @@ import "./styles.css";
 import CountUp from "../components/CountUp";
 import SyntaxHighlighter from "@/components/SyntaxHighlighter";
 import Footer from "@/components/Footer";
+import VcodeImage from "@/components/VcodeImage";
 
 const getVcodeImg = async () => {
     const vcodeUrl =
@@ -76,30 +77,23 @@ export default async function page() {
     return (
         <div className="overflow-hidden">
             <div className="bg-slate-400 w-screen h-screen relative">
-                <div className="flex justify-center items-center w-full h-4/6">
+                <div className="flex justify-center items-center w-full md:h-4/6 h-full">
                     <div>
-                        <div
-                            className="title-text-shadow text-white font-extrabold tracking-wider -mt-20"
-                            style={{ fontSize: "7rem" }}
-                        >
-                            FCU VCode
+                        <div className="w-full title-text-shadow text-white font-extrabold tracking-wider -mt-20 sm:text-5rem md:text-7rem text-4rem">
+                            <div className="flex justify-center">FCU VCode</div>
                         </div>
                         <div className="flex justify-center pt-5">
-                            <div className="title-span-text-shadow text-2xl tracking-wider font-bold">
+                            <div className="title-span-text-shadow text-base sm:text-lg md:text-2xl tracking-wider font-bold">
                                 Empowering FCU Students Beyond OCR
                             </div>
                         </div>
-                        <Image
+                        <VcodeImage
                             src={vcodeImgUrl}
-                            alt="fcu validate code image"
-                            height="80"
-                            width="160"
-                            style={{ opacity: "0.9" }}
-                            className="mx-auto border-white border-8 rounded-xl mt-[10%] bg-white bg-opacity-60 h-20"
-                        />
+                            alt={"fcu validate code image"}
+                        ></VcodeImage>
                     </div>
                 </div>
-                <div className="flex items-end h-2/6 w-full">
+                <div className="flex items-end h-2/6 w-full invisible md:visible">
                     <Image
                         src="/homePageDownWave.svg"
                         alt="home page wave"
@@ -109,11 +103,11 @@ export default async function page() {
                     />
                 </div>
                 <div className="absolute bottom-10 left-0 right-0 flex justify-center">
-                    <ArrowBigDown className="mx-auto h-20 w-20 text-white animate-bounce" />
+                    <ArrowBigDown className="mx-auto h-14 w-14 md:h-20 md:w-20 text-white animate-bounce" />
                 </div>
             </div>
             <div className="bg-slate-400 w-screen relative">
-                <div className="flex items-start h-2/6 w-full">
+                <div className="flex items-start h-2/6 w-full invisible md:visible">
                     <Image
                         src="/homePageTopWave.svg"
                         alt="home page wave"
@@ -124,10 +118,7 @@ export default async function page() {
                 </div>
                 <div className="absolute top-10 left-0 right-0 flex justify-center">
                     <div>
-                        <div
-                            className="title-span-text-shadow tracking-wider font-extrabold"
-                            style={{ fontSize: "9rem" }}
-                        >
+                        <div className="title-span-text-shadow tracking-wider font-extrabold text-6rem md:text-9rem">
                             {vcodeNum < 1000 ? <CountUp endNum={"0"} /> : ""}
                             {vcodeNum < 100 ? <CountUp endNum={"0"} /> : ""}
                             {vcodeNum < 10 ? <CountUp endNum={"0"} /> : ""}
@@ -135,12 +126,14 @@ export default async function page() {
                         </div>
                     </div>
                 </div>
-                <div className="mx-40">
+                <div className="mt-20 lg:mt-0 mx-5 sm:mx-16 lg:mx-40">
                     <div className="mb-2">
-                        <span className="font-bold text-3xl p-5 text-slate-400 bg-white font-sans rounded-xl border-solid border-b-5 border-r-5">
-                            How To Use
-                        </span>
-                        <div className="title-span-text-shadow text-2xl tracking-wider font-bold mt-8">
+                        <div className="w-full flex justify-center md:justify-start">
+                            <span className="font-bold text-lg md:text-xl lg:text-3xl p-4 lg:p-5 text-slate-400 bg-white font-sans rounded-xl border-solid md:border-b-5 md:border-r-5">
+                                How To Use
+                            </span>
+                        </div>
+                        <div className="title-span-text-shadow text-lg lg:text-2xl tracking-wider font-bold mt-8 text-center md:text-left">
                             Send your validate code image to vcode api, it will
                             return the validate code number, and you can use it
                             anywhere you want.
@@ -148,25 +141,32 @@ export default async function page() {
                     </div>
                     <div className="py-5">
                         <div className="bg-white text-slate-400 rounded-xl font-sans tracking-wider">
-                            <div className="flex text-xl p-5 h-full items-center font-semibold">
+                            <div className="flex text-lg lg:text-xl p-3 lg:p-5 h-full items-center font-semibold">
                                 <Sailboat className="mx-3" />
                                 <span>Python Code</span>
                             </div>
-                            <div className="text-base pl-8 pb-5 font-medium">
+                            <div className="text-base pl-3 lg:pl-5 pb-5 font-medium">
                                 <div className="py-1 flex h-full items-center">
-                                    <Bird className="mr-3" />
+                                    <div className="w-6 h-6 mx-3">
+                                        <Bird />
+                                    </div>
                                     run{" "}
-                                    <span className="mx-1 rounded-md border border-slate-200 bg-slate-100 px-1.5 py-0.5 text-slate-400">
+                                    <span className="mx-1 rounded-md md:border border-slate-200 md:bg-slate-100 md:px-1.5 md:py-0.5 text-slate-400">
                                         pip install requests
                                     </span>
                                 </div>
                                 <div className="py-1 flex h-full items-center">
-                                    <Bird className="mr-3" />
-                                    change{" "}
-                                    <span className="mx-1 rounded-md border border-slate-200 bg-slate-100 px-1.5 py-0.5 text-slate-400">
-                                        IMAGE_PATH
-                                    </span>{" "}
-                                    in code to your validate code image path.
+                                    <div className="w-6 h-6 mx-3">
+                                        <Bird />
+                                    </div>
+                                    <div>
+                                        change{" "}
+                                        <span className="md:mx-1 rounded-md md:border border-slate-200 md:bg-slate-100 md:px-1.5 md:py-0.5 text-slate-400">
+                                            IMAGE_PATH
+                                        </span>{" "}
+                                        in code to your validate code image
+                                        path.
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -179,25 +179,32 @@ export default async function page() {
                     </div>
                     <div className="py-5">
                         <div className="bg-white text-slate-400 rounded-xl font-sans tracking-wider">
-                            <div className="flex text-xl p-5 h-full items-center font-semibold">
+                            <div className="flex text-lg lg:text-xl p-3 lg:p-5 h-full items-center font-semibold">
                                 <Sailboat className="mx-3" />
                                 <span>JavaScript Code</span>
                             </div>
-                            <div className="text-base pl-8 pb-5 font-medium">
+                            <div className="text-base pl-3 lg:pl-5 pb-5 font-medium">
                                 <div className="py-1 flex h-full items-center">
-                                    <Bird className="mr-3" />
+                                    <div className="w-6 h-6 mx-3">
+                                        <Bird />
+                                    </div>
                                     run{" "}
-                                    <span className="mx-1 rounded-md border border-slate-200 bg-slate-100 px-1.5 py-0.5 text-slate-400">
+                                    <span className="mx-1 rounded-md md:border border-slate-200 md:bg-slate-100 md:px-1.5 md:py-0.5 text-slate-400">
                                         npm install axios fs form-data
                                     </span>
                                 </div>
                                 <div className="py-1 flex h-full items-center">
-                                    <Bird className="mr-3" />
-                                    change{" "}
-                                    <span className="mx-1 rounded-md border border-slate-200 bg-slate-100 px-1.5 py-0.5 text-slate-400">
-                                        IMAGE_PATH
-                                    </span>{" "}
-                                    in code to your validate code image path.
+                                    <div className="w-6 h-6 mx-3">
+                                        <Bird />
+                                    </div>
+                                    <div>
+                                        change{" "}
+                                        <span className="md:mx-1 rounded-md md:border border-slate-200 md:bg-slate-100 md:px-1.5 md:py-0.5 text-slate-400">
+                                            IMAGE_PATH
+                                        </span>{" "}
+                                        in code to your validate code image
+                                        path.
+                                    </div>
                                 </div>
                             </div>
                         </div>
