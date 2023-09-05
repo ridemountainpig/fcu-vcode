@@ -12,6 +12,19 @@ export const metadata = {
 export default function RootLayout({ children }) {
     return (
         <html lang="en">
+            {/* Open Graph / Facebook */}
+            <meta property="og:type" content="website" />
+            <meta property="og:url" content="https://fcu-vcode.vercel.app/" />
+            <meta property="og:title" content="FCU VCode" />
+            <meta property="og:description" content="" />
+            <meta property="og:image" content="https://fcu-vcode.vercel.app/favicon.ico" />
+
+            {/* Twitter */}
+            <meta property="twitter:card" content="summary_large_image" />
+            <meta property="twitter:url" content="https://fcu-vcode.vercel.app/" />
+            <meta property="twitter:title" content="FCU VCode" />
+            <meta property="twitter:description" content="" />
+            <meta property="twitter:image" content="https://fcu-vcode.vercel.app/favicon.ico" />
             <Head>
                 <link rel="icon" href="/favicon.ico" sizes="any" />
             </Head>
