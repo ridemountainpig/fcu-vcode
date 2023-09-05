@@ -1,34 +1,72 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+![CleanShot 2023-09-01 at 15 00 30@2x](https://github.com/ridemountainpig/fcu-vcode/assets/92412722/64ed5b69-d5ef-4896-8c7b-6d1213ca6b8b)
 
-## Getting Started
+# FCU VCode
+FCU VCode is an API designed to identify and validate FCU codes accurately.
 
-First, run the development server:
+## Usage
+Send your validate code image to vcode api, it will return the validate code number, and you can use it anywhere you want.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+#### To use api with `python`, follow these steps:
+
+1. run pip install requests
+2. change IMAGE_PATH in code to your validate code image path.
+
+```python
+
+import requests
+
+def vcode(file_path):
+    fcu_vcode_url = 'https://fcu-vcode-api.ridemountainpig.repl.co/validate'
+    with open(file_path, 'rb') as file:
+        image_data = file.read()
+
+    files = {'file': ('image.png', image_data, 'image/png')}
+
+    response = requests.post(fcu_vcode_url, files=files)
+
+    if response.status_code == 200:
+        print("Request was successful!")
+        print("Response:", response.text)
+    else:
+        print(f"Request failed with status code: {response.status_code}")
+        print("Response:", response.text)
+
+if __name__ == "__main__":
+    vcode(IMAGE_PATH)
+
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+#### To use api with `javascript`, follow these steps:
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+1. run npm install axios fs form-data
+2. change IMAGE_PATH in code to your validate code image path.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+```javascript
 
-## Learn More
+import axios from 'axios';
+import { promises as fs } from 'fs';
+import FormData from 'form-data';
 
-To learn more about Next.js, take a look at the following resources:
+async function vcode(file_path) {
+    const fcuVcodeUrl = 'https://fcu-vcode-api.ridemountainpig.repl.co/validate';
+    try {
+        const image_data = await fs.readFile(file_path);
 
--   [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
--   [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+        const formData = new FormData();
+        formData.append('file', image_data, 'image.png');
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+        const response = await axios.post(fcuVcodeUrl, formData, {
+            headers: formData.getHeaders(),
+        });
 
-## Deploy on Vercel
+        console.log(response.data);
+    } catch (error) {
+        console.error('Error:', error.message);
+    }
+}
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+(async () => {
+    await vcode(IMAGE_PATH);
+})();
+    
+```
