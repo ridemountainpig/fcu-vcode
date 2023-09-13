@@ -10,7 +10,7 @@ import VcodeImage from "@/components/VcodeImage";
 
 const getVcodeImg = async () => {
     const vcodeUrl =
-        "https://fcu-vcode-api.ridemountainpig.repl.co/validateImg";
+        "https://fcu-vcode-api.zeabur.app/validateImg";
     const vcodeImgResponse = await fetch(vcodeUrl, { cache: "no-store" });
     const vcodeResult = await vcodeImgResponse.json();
     return vcodeResult;
@@ -19,7 +19,7 @@ const getVcodeImg = async () => {
 export default async function page() {
     const vcodeImgResponse = await getVcodeImg();
     const vcodeImgUrl =
-        "https://fcu-vcode-api.ridemountainpig.repl.co/images/" +
+        "https://fcu-vcode-api.zeabur.app/images/" +
         vcodeImgResponse.fileName;
     const vcodeNum = vcodeImgResponse.vcode;
 
@@ -27,7 +27,7 @@ export default async function page() {
     import requests
     
     def vcode(file_path):
-        fcu_vcode_url = 'https://fcu-vcode-api.ridemountainpig.repl.co/validate'
+        fcu_vcode_url = 'https://fcu-vcode-api.zeabur.app/validate'
         with open(file_path, 'rb') as file:
             image_data = file.read()
     
@@ -52,7 +52,7 @@ export default async function page() {
     import FormData from 'form-data';
 
     async function vcode(file_path) {
-        const fcuVcodeUrl = 'https://fcu-vcode-api.ridemountainpig.repl.co/validate';
+        const fcuVcodeUrl = 'https://fcu-vcode-api.zeabur.app/validate';
         try {
             const image_data = await fs.readFile(file_path);
 

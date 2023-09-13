@@ -10,7 +10,7 @@ const nextConfig = {
         remotePatterns: [
             {
                 protocol: "https",
-                hostname: "fcu-vcode-api.ridemountainpig.repl.co",
+                hostname: "fcu-vcode-api.zeabur.app",
             },
         ],
     },
