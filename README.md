@@ -16,7 +16,7 @@ Send your validate code image to vcode api, it will return the validate code num
 import requests
 
 def vcode(file_path):
-    fcu_vcode_url = 'https://fcu-vcode-api.ridemountainpig.repl.co/validate'
+    fcu_vcode_url = 'https://fcu-vcode-api.zeabur.app/validate'
     with open(file_path, 'rb') as file:
         image_data = file.read()
 
@@ -48,7 +48,7 @@ import { promises as fs } from 'fs';
 import FormData from 'form-data';
 
 async function vcode(file_path) {
-    const fcuVcodeUrl = 'https://fcu-vcode-api.ridemountainpig.repl.co/validate';
+    const fcuVcodeUrl = 'https://fcu-vcode-api.zeabur.app/validate';
     try {
         const image_data = await fs.readFile(file_path);
 
