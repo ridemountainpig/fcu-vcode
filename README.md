@@ -1,9 +1,11 @@
 ![CleanShot 2023-09-01 at 15 00 30@2x](https://github.com/ridemountainpig/fcu-vcode/assets/92412722/64ed5b69-d5ef-4896-8c7b-6d1213ca6b8b)
 
 # FCU VCode
+
 FCU VCode is an API designed to identify and validate FCU codes accurately.
 
 ## Usage
+
 Send your validate code image to vcode api, it will return the validate code number, and you can use it anywhere you want.
 
 #### To use api with `python`, follow these steps:
@@ -42,18 +44,17 @@ if __name__ == "__main__":
 2. change IMAGE_PATH in code to your validate code image path.
 
 ```javascript
-
-import axios from 'axios';
-import { promises as fs } from 'fs';
-import FormData from 'form-data';
+import axios from "axios";
+import { promises as fs } from "fs";
+import FormData from "form-data";
 
 async function vcode(file_path) {
-    const fcuVcodeUrl = 'https://fcu-vcode-api.zeabur.app/validate';
+    const fcuVcodeUrl = "https://fcu-vcode-api.zeabur.app/validate";
     try {
         const image_data = await fs.readFile(file_path);
 
         const formData = new FormData();
-        formData.append('file', image_data, 'image.png');
+        formData.append("file", image_data, "image.png");
 
         const response = await axios.post(fcuVcodeUrl, formData, {
             headers: formData.getHeaders(),
@@ -61,12 +62,11 @@ async function vcode(file_path) {
 
         console.log(response.data);
     } catch (error) {
-        console.error('Error:', error.message);
+        console.error("Error:", error.message);
     }
 }
 
 (async () => {
     await vcode(IMAGE_PATH);
 })();
-    
 ```
