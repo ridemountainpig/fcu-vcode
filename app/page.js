@@ -80,12 +80,15 @@ export default async function page() {
                 <div className="flex justify-center items-center w-full md:h-4/6 h-full">
                     <div>
                         <div className="w-full title-text-shadow text-white font-extrabold tracking-wider -mt-20 sm:text-5rem md:text-7rem text-4rem">
-                            <div className="flex justify-center">FCU VCode</div>
+                            <h1 className="flex justify-center">FCU VCode</h1>
+                            <h2 className="hidden">逢甲大學驗證碼辨識</h2>
+                            <h2 className="hidden">逢甲大學驗證碼辨識 API</h2>
+                            <h2 className="hidden">FCU VCode is an API designed to identify and validate FCU codes accurately.</h2>
                         </div>
                         <div className="flex justify-center pt-5">
-                            <div className="title-span-text-shadow text-base sm:text-lg md:text-2xl tracking-wider font-bold">
+                            <h2 className="title-span-text-shadow text-base sm:text-lg md:text-2xl tracking-wider font-bold">
                                 Empowering FCU Students Beyond OCR
-                            </div>
+                            </h2>
                         </div>
                         <VcodeImage
                             src={vcodeImgUrl}
@@ -96,7 +99,7 @@ export default async function page() {
                 <div className="flex items-end h-2/6 w-full invisible md:visible">
                     <Image
                         src="/homePageDownWave.svg"
-                        alt="home page wave"
+                        alt="home page wave decoration"
                         width={0}
                         height={0}
                         className="w-full overflow-hidden"
@@ -110,7 +113,7 @@ export default async function page() {
                 <div className="flex items-start h-2/6 w-full invisible md:visible">
                     <Image
                         src="/homePageTopWave.svg"
-                        alt="home page wave"
+                        alt="home page wave decoration"
                         width={0}
                         height={0}
                         className="w-full overflow-hidden"
@@ -132,6 +135,9 @@ export default async function page() {
                             <span className="font-bold text-lg md:text-xl lg:text-3xl p-4 lg:p-5 text-slate-400 bg-white font-sans rounded-xl border-solid md:border-b-5 md:border-r-5">
                                 How To Use
                             </span>
+                            <h2 className="hidden">
+                                How To Use FCU VCode API
+                            </h2>
                         </div>
                         <div className="title-span-text-shadow text-lg lg:text-2xl tracking-wider font-bold mt-8 text-center md:text-left">
                             Send your validate code image to vcode api, it will
