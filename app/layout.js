@@ -41,9 +41,9 @@ export default function RootLayout({ children }) {
                 property="twitter:image"
                 content="https://fcu-vcode.vercel.app/favicon.ico"
             />
+            <meta name="google-site-verification" content="MsZruHXSkmggHUEIMwVqn24AappLAZUSBmLcp4XwFGo" />
             <Head>
                 <link rel="icon" href="/favicon.ico" sizes="any" />
-                <meta name="google-site-verification" content="MsZruHXSkmggHUEIMwVqn24AappLAZUSBmLcp4XwFGo" />
             </Head>
             <body className={inter.className}>{children}</body>
         </html>
