@@ -90,9 +90,37 @@ export default async function page() {
             </Script>
             <div className="overflow-hidden">
                 <div className="bg-slate-400 w-screen h-screen relative">
+                    <header class="hidden">
+                        <nav>
+                            <div class="flex justify-around">
+                                <div>
+                                    <a
+                                        href="https://fcu-vcode.vercel.app/"
+                                        title="FCU VCode"
+                                    >
+                                        <div class="flex items-center justify-center">
+                                            <h1>FCU VCode</h1>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div>
+                                    <h2>FCU Validate Code API</h2>
+                                </div>
+                                <div>
+                                    <a
+                                        href="https://github.com/ridemountainpig/fcu-vcode"
+                                        title="FCU Validate Code Github Link"
+                                        target="_blank"
+                                    >
+                                        <h2>FCU Validate Code On Github</h2>
+                                    </a>
+                                </div>
+                            </div>
+                        </nav>
+                    </header>
                     <div className="flex justify-center items-center w-full md:h-4/6 h-full">
                         <div>
-                            <div className="w-full title-text-shadow text-white font-extrabold tracking-wider -mt-20 sm:text-5rem md:text-7rem text-4rem">
+                            <div className="w-full title-text-shadow text-white font-extrabold tracking-wider -mt-20 xs:text-4rem sm:text-5rem md:text-7rem text-3rem">
                                 <h1 className="flex justify-center">
                                     FCU VCode
                                 </h1>
@@ -106,7 +134,7 @@ export default async function page() {
                                 </h2>
                             </div>
                             <div className="flex justify-center pt-5">
-                                <h2 className="title-span-text-shadow text-base sm:text-lg md:text-2xl tracking-wider font-bold">
+                                <h2 className="title-span-text-shadow text-sm xs:text-base sm:text-lg md:text-2xl tracking-wider font-bold text-center">
                                     Empowering FCU Students Beyond OCR
                                 </h2>
                             </div>
@@ -175,7 +203,7 @@ export default async function page() {
                                     <Sailboat className="mx-3" />
                                     <span>Python Code</span>
                                 </div>
-                                <div className="text-base pl-3 lg:pl-5 pb-5 font-medium">
+                                <div className="text-sm md:text-base pl-3 lg:pl-5 pb-5 font-medium">
                                     <div className="py-1 flex h-full items-center">
                                         <div className="w-6 h-6 mx-3">
                                             <Bird />
@@ -213,7 +241,7 @@ export default async function page() {
                                     <Sailboat className="mx-3" />
                                     <span>JavaScript Code</span>
                                 </div>
-                                <div className="text-base pl-3 lg:pl-5 pb-5 font-medium">
+                                <div className="text-sm md:text-base pl-3 lg:pl-5 pb-5 font-medium">
                                     <div className="py-1 flex h-full items-center">
                                         <div className="w-6 h-6 mx-3">
                                             <Bird />

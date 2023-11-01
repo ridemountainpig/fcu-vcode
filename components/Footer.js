@@ -6,7 +6,7 @@ import { Github } from "lucide-react";
 
 function Footer() {
     return (
-        <div className="relative flex h-40 w-screen flex-col items-center bg-wave-blue lg:h-60">
+        <footer className="relative flex h-40 w-screen flex-col items-center bg-wave-blue lg:h-60">
             <p className="mt-10 lg:mt-20 mb-2 font-mono font-extrabold text-3xl tracking-wider text-white lg:text-5xl">
                 <span className="px-2">FCU</span>
                 <span className="px-2">VCode</span>
@@ -14,7 +14,7 @@ function Footer() {
             <a className="font-mono text-xs tracking-widest font-extrabold text-gray-500 lg:text-sm">
                 Beyond OCR Now
             </a>
-            <div className="absolute bottom-5 flex w-full justify-between px-6">
+            <div className="absolute bottom-1 sm:bottom-5 flex w-full justify-between pl-2 sm:px-6">
                 <Link
                     className="flex space-x-2 lg:duration-300 lg:hover:ms-2"
                     href="https://github.com/ridemountainpig/fcu-vcode"
@@ -45,7 +45,7 @@ function Footer() {
                     </svg>
                 </Link>
             </div>
-        </div>
+        </footer>
     );
 }
 
