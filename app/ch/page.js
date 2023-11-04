@@ -2,12 +2,13 @@ import React from "react";
 import Image from "next/image";
 import { ArrowBigDown, Sailboat, Bird, Link } from "lucide-react";
 
-import "./styles.css";
+import "../styles.css";
 import CountUp from "@/components/CountUp";
 import SyntaxHighlighter from "@/components/SyntaxHighlighter";
 import Footer from "@/components/Footer";
 import VcodeImage from "@/components/VcodeImage";
 import Script from "next/script";
+import Head from "next/head";
 
 const getVcodeImg = async () => {
     const vcodeUrl = "https://fcu-vcode-api.zeabur.app/validateImg";
@@ -17,7 +18,7 @@ const getVcodeImg = async () => {
 };
 
 export const metadata = {
-    title: "FCU Validate Code",
+    title: "逢甲大學驗證碼辨識 API",
     description:
         "逢甲大學驗證碼辨識 API - FCU VCode is an API designed to identify and validate FCU codes accurately.",
     keywords: "FCU, VCode, API, Validate Code, Validate Code API",
@@ -82,6 +83,10 @@ export default async function page() {
 
     return (
         <>
+            <Head>
+                <title>逢甲大學驗證碼辨識 API</title>
+                {/* <link rel="icon" href="/favicon.ico" /> */}
+            </Head>
             <Script
                 async
                 src="https://www.googletagmanager.com/gtag/js?id=G-6LNQZ77899"
@@ -103,15 +108,19 @@ export default async function page() {
                                 <div>
                                     <a
                                         href="https://fcu-vcode.vercel.app/"
-                                        title="FCU VCode"
+                                        title="逢甲大學驗證碼辨識"
                                     >
                                         <div class="flex items-center justify-center">
-                                            <h1>FCU VCode</h1>
+                                            <h1>逢甲大學驗證碼辨識</h1>
                                         </div>
                                     </a>
                                 </div>
                                 <div>
-                                    <h2>FCU Validate Code API</h2>
+                                    <Link
+                                        className="hidden"
+                                        href="https://fcu-vcode.vercel.app/"
+                                        alt="FCU Validate Code API"
+                                    ></Link>
                                 </div>
                                 <div>
                                     <a
@@ -119,7 +128,7 @@ export default async function page() {
                                         title="FCU Validate Code Github Link"
                                         target="_blank"
                                     >
-                                        <h2>FCU Validate Code On Github</h2>
+                                        <h2>逢甲大學驗證碼辨識 API Github</h2>
                                     </a>
                                 </div>
                             </div>
@@ -131,20 +140,17 @@ export default async function page() {
                                 <h1 className="flex justify-center">
                                     FCU VCode
                                 </h1>
+                                <h1 className="flex justify-center title-span-text-shadow text-sm xs:text-base sm:text-lg md:text-2xl tracking-wider font-bold text-center">
+                                    逢甲大學驗證碼辨識 API
+                                </h1>
                                 <h2 className="hidden">逢甲大學驗證碼辨識</h2>
-                                <Link
-                                    className="hidden"
-                                    href="https://fcu-vcode.vercel.app/ch"
-                                    alt="逢甲大學驗證碼辨識 API"
-                                ></Link>
                                 <h2 className="hidden">
-                                    FCU VCode is an API designed to identify and
-                                    validate FCU codes accurately.
+                                    FCU VCode 準確地辨識逢甲大學驗證碼
                                 </h2>
                             </div>
                             <div className="flex justify-center pt-5">
                                 <h2 className="title-span-text-shadow text-sm xs:text-base sm:text-lg md:text-2xl tracking-wider font-bold text-center">
-                                    Empowering FCU Students Beyond OCR
+                                    賦予逢甲大學學生超越OCR的能力
                                 </h2>
                             </div>
                             <VcodeImage
@@ -194,16 +200,15 @@ export default async function page() {
                         <div className="mb-2">
                             <div className="w-full flex justify-center md:justify-start">
                                 <span className="font-bold text-lg md:text-xl lg:text-3xl p-4 lg:p-5 text-slate-400 bg-white font-sans rounded-xl border-solid md:border-b-5 md:border-r-5">
-                                    How To Use
+                                    使用方法
                                 </span>
                                 <h2 className="hidden">
-                                    How To Use FCU VCode API
+                                    逢甲大學驗證碼辨識 API 使用方法
                                 </h2>
                             </div>
                             <div className="title-span-text-shadow text-lg lg:text-2xl tracking-wider font-bold mt-8 text-center md:text-left">
-                                Send your validate code image to vcode api, it
-                                will return the validate code number, and you
-                                can use it anywhere you want.
+                                將驗證碼圖片發送到 FCU vcode
+                                api，它將返回驗證碼碼，你可以在你想要的任何地方使用它。
                             </div>
                         </div>
                         <div className="py-5">
@@ -217,7 +222,7 @@ export default async function page() {
                                         <div className="w-6 h-6 mx-3">
                                             <Bird />
                                         </div>
-                                        run{" "}
+                                        執行{" "}
                                         <span className="mx-1 rounded-md md:border border-slate-200 md:bg-slate-100 md:px-1.5 md:py-0.5 text-slate-400">
                                             pip install requests
                                         </span>
@@ -227,12 +232,11 @@ export default async function page() {
                                             <Bird />
                                         </div>
                                         <div>
-                                            change{" "}
+                                            將{" "}
                                             <span className="md:mx-1 rounded-md md:border border-slate-200 md:bg-slate-100 md:px-1.5 md:py-0.5 text-slate-400">
                                                 IMAGE_PATH
                                             </span>{" "}
-                                            in code to your validate code image
-                                            path.
+                                            換成你的驗證碼圖片路徑。
                                         </div>
                                     </div>
                                 </div>
@@ -255,7 +259,7 @@ export default async function page() {
                                         <div className="w-6 h-6 mx-3">
                                             <Bird />
                                         </div>
-                                        run{" "}
+                                        執行{" "}
                                         <span className="mx-1 rounded-md md:border border-slate-200 md:bg-slate-100 md:px-1.5 md:py-0.5 text-slate-400">
                                             npm install axios fs form-data
                                         </span>
@@ -265,12 +269,11 @@ export default async function page() {
                                             <Bird />
                                         </div>
                                         <div>
-                                            change{" "}
+                                            將{" "}
                                             <span className="md:mx-1 rounded-md md:border border-slate-200 md:bg-slate-100 md:px-1.5 md:py-0.5 text-slate-400">
                                                 IMAGE_PATH
                                             </span>{" "}
-                                            in code to your validate code image
-                                            path.
+                                            換成你的驗證碼圖片路徑。
                                         </div>
                                     </div>
                                 </div>
